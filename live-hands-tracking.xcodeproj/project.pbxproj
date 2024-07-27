@@ -13,6 +13,13 @@
 		BE7527E22C5501A20091B836 /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7527E12C5501A20091B836 /* ImmersiveView.swift */; };
 		BE7527E42C5501A40091B836 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE7527E32C5501A40091B836 /* Assets.xcassets */; };
 		BE7527E72C5501A40091B836 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE7527E62C5501A40091B836 /* Preview Assets.xcassets */; };
+		BE7527F32C5502260091B836 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7527F22C5502260091B836 /* MotionManager.swift */; };
+		BE7527F52C55023C0091B836 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7527F42C55023C0091B836 /* Service.swift */; };
+		BE7527F82C55362D0091B836 /* HandsPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7527F72C55362D0091B836 /* HandsPosition.swift */; };
+		BE7527FA2C5536520091B836 /* HandJoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7527F92C5536520091B836 /* HandJoint.swift */; };
+		BE7527FC2C5538A00091B836 /* WebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7527FB2C5538A00091B836 /* WebSocketManager.swift */; };
+		BE7527FF2C554F020091B836 /* SIMD3+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7527FE2C554F020091B836 /* SIMD3+Extensions.swift */; };
+		BE7528012C554FAE0091B836 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7528002C554FAE0091B836 /* UserDefaults+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +31,13 @@
 		BE7527E32C5501A40091B836 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE7527E62C5501A40091B836 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BE7527E82C5501A40091B836 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE7527F22C5502260091B836 /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
+		BE7527F42C55023C0091B836 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		BE7527F72C55362D0091B836 /* HandsPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandsPosition.swift; sourceTree = "<group>"; };
+		BE7527F92C5536520091B836 /* HandJoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandJoint.swift; sourceTree = "<group>"; };
+		BE7527FB2C5538A00091B836 /* WebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketManager.swift; sourceTree = "<group>"; };
+		BE7527FE2C554F020091B836 /* SIMD3+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SIMD3+Extensions.swift"; sourceTree = "<group>"; };
+		BE7528002C554FAE0091B836 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,10 +73,11 @@
 			isa = PBXGroup;
 			children = (
 				BE7527DD2C5501A20091B836 /* live_hands_trackingApp.swift */,
-				BE7527DF2C5501A20091B836 /* ContentView.swift */,
-				BE7527E12C5501A20091B836 /* ImmersiveView.swift */,
-				BE7527E32C5501A40091B836 /* Assets.xcassets */,
 				BE7527E82C5501A40091B836 /* Info.plist */,
+				BE7527F02C5502080091B836 /* Models */,
+				BE7527EE2C5501B10091B836 /* Views */,
+				BE7527F12C55020C0091B836 /* View Models */,
+				BE7527EF2C5501BE0091B836 /* Resources */,
 				BE7527E52C5501A40091B836 /* Preview Content */,
 			);
 			path = "live-hands-tracking";
@@ -82,6 +97,60 @@
 				BE7527E62C5501A40091B836 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BE7527EE2C5501B10091B836 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BE7527E12C5501A20091B836 /* ImmersiveView.swift */,
+				BE7527DF2C5501A20091B836 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BE7527EF2C5501BE0091B836 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BE7527E32C5501A40091B836 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BE7527F02C5502080091B836 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BE7527FD2C554EF90091B836 /* Extensions */,
+				BE7527F62C55023F0091B836 /* Protocols */,
+				BE7527F72C55362D0091B836 /* HandsPosition.swift */,
+				BE7527F92C5536520091B836 /* HandJoint.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BE7527F12C55020C0091B836 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				BE7527F22C5502260091B836 /* MotionManager.swift */,
+				BE7527FB2C5538A00091B836 /* WebSocketManager.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		BE7527F62C55023F0091B836 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				BE7527F42C55023C0091B836 /* Service.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		BE7527FD2C554EF90091B836 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BE7527FE2C554F020091B836 /* SIMD3+Extensions.swift */,
+				BE7528002C554FAE0091B836 /* UserDefaults+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,7 +228,14 @@
 			files = (
 				BE7527E02C5501A20091B836 /* ContentView.swift in Sources */,
 				BE7527DE2C5501A20091B836 /* live_hands_trackingApp.swift in Sources */,
+				BE7527F52C55023C0091B836 /* Service.swift in Sources */,
+				BE7527FC2C5538A00091B836 /* WebSocketManager.swift in Sources */,
 				BE7527E22C5501A20091B836 /* ImmersiveView.swift in Sources */,
+				BE7527FF2C554F020091B836 /* SIMD3+Extensions.swift in Sources */,
+				BE7527FA2C5536520091B836 /* HandJoint.swift in Sources */,
+				BE7527F32C5502260091B836 /* MotionManager.swift in Sources */,
+				BE7528012C554FAE0091B836 /* UserDefaults+Extensions.swift in Sources */,
+				BE7527F82C55362D0091B836 /* HandsPosition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +373,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Live Hands Tracking";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,6 +385,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
 			name = Debug;
 		};
@@ -323,6 +401,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Live Hands Tracking";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -334,6 +413,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
 			name = Release;
 		};
