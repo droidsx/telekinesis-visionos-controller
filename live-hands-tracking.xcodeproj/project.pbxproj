@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BE7527DC2C5501A20091B836 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = BE7527DB2C5501A20091B836 /* RealityKitContent */; };
 		BE7527DE2C5501A20091B836 /* live_hands_trackingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7527DD2C5501A20091B836 /* live_hands_trackingApp.swift */; };
 		BE7527E02C5501A20091B836 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7527DF2C5501A20091B836 /* ContentView.swift */; };
 		BE7527E22C5501A20091B836 /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7527E12C5501A20091B836 /* ImmersiveView.swift */; };
@@ -24,7 +23,6 @@
 
 /* Begin PBXFileReference section */
 		BE7527D62C5501A20091B836 /* live-hands-tracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "live-hands-tracking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE7527DA2C5501A20091B836 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		BE7527DD2C5501A20091B836 /* live_hands_trackingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = live_hands_trackingApp.swift; sourceTree = "<group>"; };
 		BE7527DF2C5501A20091B836 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BE7527E12C5501A20091B836 /* ImmersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveView.swift; sourceTree = "<group>"; };
@@ -45,7 +43,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE7527DC2C5501A20091B836 /* RealityKitContent in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +83,6 @@
 		BE7527D92C5501A20091B836 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				BE7527DA2C5501A20091B836 /* RealityKitContent */,
 			);
 			path = Packages;
 			sourceTree = "<group>";
@@ -170,7 +166,6 @@
 			);
 			name = "live-hands-tracking";
 			packageProductDependencies = (
-				BE7527DB2C5501A20091B836 /* RealityKitContent */,
 			);
 			productName = "live-hands-tracking";
 			productReference = BE7527D62C5501A20091B836 /* live-hands-tracking.app */;
@@ -439,13 +434,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		BE7527DB2C5501A20091B836 /* RealityKitContent */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RealityKitContent;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BE7527CE2C5501A20091B836 /* Project object */;
 }
