@@ -12,16 +12,21 @@ import RealityKit
 struct HandsPosition {
     var jointPositions: [HandJoint : SIMD3<Float>?]
     
-    func pinchGestureActive(for chirality: HandAnchor.Chirality) -> Bool {
-        let maxFingerTipDistance: Float = 0.01
+    func pinchGestureDistance(for chirality: HandAnchor.Chirality) -> Float? {
         if let indexFingerTip = jointPositions[.init(chirality: chirality, joint: .indexFingerTip)],
            let indexFingerTip,
            let thumbTip = jointPositions[.init(chirality: chirality, joint: .thumbTip)],
            let thumbTip
         {
-            return indexFingerTip.distance(to: thumbTip) < maxFingerTipDistance
+            return indexFingerTip.distance(to: thumbTip)
         }
-        return false
+        return nil
+    }
+    
+    func pinchGestureActive(for chirality: HandAnchor.Chirality) -> Bool {
+        let maxFingerTipDistance: Float = 0.01
+        guard let distance = pinchGestureDistance(for: chirality) else { return false }
+        return distance < maxFingerTipDistance
     }
     
     init(jointPositions: [HandJoint : SIMD3<Float>?] = [:]) {

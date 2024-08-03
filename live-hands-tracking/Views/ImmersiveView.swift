@@ -7,7 +7,6 @@
 
 import SwiftUI
 import RealityKit
-import RealityKitContent
 import ARKit
 
 struct ImmersiveView: View {
@@ -15,7 +14,7 @@ struct ImmersiveView: View {
     @StateObject private var motionManager = MotionManager()
     @State private var webSocketTimer: Timer? = nil
     
-    private let webSocketPayloadInterval: TimeInterval = 1
+    private let webSocketPayloadInterval: TimeInterval = 5
     
     private static let controlPanelWorldPosition: SIMD3<Float> = [0, 1.5, -0.75]
     private static let controlPanelAnchor: AnchorEntity = .init(world: controlPanelWorldPosition)

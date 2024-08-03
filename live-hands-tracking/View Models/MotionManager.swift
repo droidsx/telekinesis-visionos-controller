@@ -32,14 +32,18 @@ class MotionManager: ObservableObject, Service {
         for await update in provider.anchorUpdates {
             let handAnchor = update.anchor
             for jointName in HandSkeleton.JointName.allCases {
-                if let jointPosition = handAnchor.handSkeleton?.joint(jointName) {
+                if let joint = handAnchor.handSkeleton?.joint(jointName) {
                     let handJoint = HandJoint(chirality: handAnchor.chirality, joint: jointName)
                     DispatchQueue.main.async {
-                        self.handsPosition.jointPositions[handJoint] = self.jointTranslation(from: jointPosition.anchorFromJointTransform)
-                        if let joint = handAnchor.handSkeleton?.joint(jointName),
-                           let jointEntity = self.rootEntity.findEntity(named: handJoint.id) {
-                            jointEntity.setTransformMatrix(handAnchor.originFromAnchorTransform * joint.anchorFromJointTransform,
-                                                           relativeTo: nil)
+                        if let jointEntity = self.rootEntity.findEntity(named: handJoint.id) {
+                            jointEntity.setTransformMatrix(
+                                handAnchor.originFromAnchorTransform * joint.anchorFromJointTransform,
+                                relativeTo: nil
+                            )
+                            self.handsPosition.jointPositions[handJoint] = self.jointTranslation(
+                                jointTransform: joint.anchorFromJointTransform,
+                                handTransform: handAnchor.originFromAnchorTransform
+                            )
                         }
                     }
                 }
@@ -47,8 +51,9 @@ class MotionManager: ObservableObject, Service {
         }
     }
     
-    private func jointTranslation(from transform: float4x4) -> SIMD3<Float> {
-        SIMD3(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
+    private func jointTranslation(jointTransform: float4x4, handTransform: float4x4) -> SIMD3<Float> {
+        let transform = handTransform * jointTransform
+        return SIMD3(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
     }
 }
 

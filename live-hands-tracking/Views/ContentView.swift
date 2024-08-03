@@ -7,7 +7,6 @@
 
 import SwiftUI
 import RealityKit
-import RealityKitContent
 
 struct ContentView: View {
     @EnvironmentObject private var webSocketManager: WebSocketManager
