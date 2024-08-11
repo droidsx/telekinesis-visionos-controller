@@ -70,7 +70,7 @@ struct ImmersiveView: View {
         }
         .onAppear {
             self.webSocketTimer = Timer.scheduledTimer(withTimeInterval: webSocketPayloadInterval, repeats: true) { _ in
-                let jsonMessage = motionManager.handsPosition.jsonPayload.jsonData
+                let jsonMessage = motionManager.handPoses.jsonPayload.jsonData
                 webSocketManager.sendMessage(data: jsonMessage)
             }
         }

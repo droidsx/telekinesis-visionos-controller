@@ -10,7 +10,7 @@ import RealityKit
 
 class MotionManager: ObservableObject, Service {
     
-    @Published var handsPosition: HandsPosition = .init()
+    @Published var handPoses: HandPoses = .init()
     @Published var rootEntity = Entity()
     
     private let session = ARKitSession()
@@ -40,10 +40,21 @@ class MotionManager: ObservableObject, Service {
                                 handAnchor.originFromAnchorTransform * joint.anchorFromJointTransform,
                                 relativeTo: nil
                             )
-                            self.handsPosition.jointPositions[handJoint] = self.jointTranslation(
+                            
+                            let translation = self.jointTranslation(
                                 jointTransform: joint.anchorFromJointTransform,
                                 handTransform: handAnchor.originFromAnchorTransform
                             )
+                            let orientation = self.jointOrientation(
+                                jointTransform: joint.anchorFromJointTransform,
+                                handTransform: handAnchor.originFromAnchorTransform
+                            )
+                            
+                            self.handPoses.joints[handJoint] = .init(
+                                position: translation,
+                                orientation: orientation
+                            )
+                            
                         }
                     }
                 }
@@ -54,6 +65,11 @@ class MotionManager: ObservableObject, Service {
     private func jointTranslation(jointTransform: float4x4, handTransform: float4x4) -> SIMD3<Float> {
         let transform = handTransform * jointTransform
         return SIMD3(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
+    }
+    
+    private func jointOrientation(jointTransform: float4x4, handTransform: float4x4) -> simd_quatf {
+        let transform = handTransform * jointTransform
+        return simd_quaternion(transform)
     }
 }
 

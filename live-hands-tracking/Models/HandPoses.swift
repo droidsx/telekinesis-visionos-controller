@@ -9,16 +9,16 @@ import Foundation
 import ARKit
 import RealityKit
 
-struct HandsPosition {
-    var jointPositions: [HandJoint : SIMD3<Float>?]
+struct HandPoses {
+    var joints: [HandJoint : HandPose?]
     
     func pinchGestureDistance(for chirality: HandAnchor.Chirality) -> Float? {
-        if let indexFingerTip = jointPositions[.init(chirality: chirality, joint: .indexFingerTip)],
+        if let indexFingerTip = joints[.init(chirality: chirality, joint: .indexFingerTip)],
            let indexFingerTip,
-           let thumbTip = jointPositions[.init(chirality: chirality, joint: .thumbTip)],
+           let thumbTip = joints[.init(chirality: chirality, joint: .thumbTip)],
            let thumbTip
         {
-            return indexFingerTip.distance(to: thumbTip)
+            return indexFingerTip.position.distance(to: thumbTip.position)
         }
         return nil
     }
@@ -29,8 +29,8 @@ struct HandsPosition {
         return distance < maxFingerTipDistance
     }
     
-    init(jointPositions: [HandJoint : SIMD3<Float>?] = [:]) {
-        self.jointPositions = jointPositions
+    init(joints: [HandJoint : HandPose?] = [:]) {
+        self.joints = joints
     }
     
     var jsonPayload: JsonPayload {
@@ -41,15 +41,26 @@ struct HandsPosition {
     }
     
     func handPayload(_ chirality: HandAnchor.Chirality) -> JsonPayload.HandPayload {
-        var jointPositionsParameter = [String : [String : Float]]()
-        for (key, value) in jointPositions.filter({ $0.key.chirality == chirality }) {
+        var jointPositionsParameter = [String : [String : [String : Float]]]()
+        for (key, value) in joints.filter({ $0.key.chirality == chirality }) {
             if let value {
-                jointPositionsParameter[key.joint.description] = ["x" : value.x, "y" : value.y, "z" : value.z]
+                jointPositionsParameter[key.joint.description] = .init()
+                jointPositionsParameter[key.joint.description]!["position"] = [
+                    "x" : value.position.x,
+                    "y" : value.position.y,
+                    "z" : value.position.z
+                ]
+                jointPositionsParameter[key.joint.description]!["orientation"] = [
+                    "w" : value.orientation.real,
+                    "x" : value.orientation.imag.x,
+                    "y" : value.orientation.imag.y,
+                    "z" : value.orientation.imag.z
+                ]
             }
         }
         return .init(
             isPinchGesture: self.pinchGestureActive(for: chirality),
-            jointPositions: jointPositionsParameter
+            jointPoses: jointPositionsParameter
         )
     }
     
@@ -61,12 +72,12 @@ struct HandsPosition {
         
         struct HandPayload {
             let isPinchGesture: Bool
-            let jointPositions: [String : [String : Float]]
+            let jointPoses: [String : [String : [String : Float]]]
             
             var jsonData: [String : Any] {
                 [
                     "isPinchGesture" : isPinchGesture,
-                    "jointPositions" : jointPositions
+                    "jointPositions" : jointPoses
                 ]
             }
         }
@@ -92,4 +103,9 @@ struct HandsPosition {
             ]
         }
     }
+}
+
+struct HandPose {
+    let position: SIMD3<Float>
+    let orientation: simd_quatf
 }

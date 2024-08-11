@@ -14,7 +14,7 @@
 		BE7527E72C5501A40091B836 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE7527E62C5501A40091B836 /* Preview Assets.xcassets */; };
 		BE7527F32C5502260091B836 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7527F22C5502260091B836 /* MotionManager.swift */; };
 		BE7527F52C55023C0091B836 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7527F42C55023C0091B836 /* Service.swift */; };
-		BE7527F82C55362D0091B836 /* HandsPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7527F72C55362D0091B836 /* HandsPosition.swift */; };
+		BE7527F82C55362D0091B836 /* HandPoses.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7527F72C55362D0091B836 /* HandPoses.swift */; };
 		BE7527FA2C5536520091B836 /* HandJoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7527F92C5536520091B836 /* HandJoint.swift */; };
 		BE7527FC2C5538A00091B836 /* WebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7527FB2C5538A00091B836 /* WebSocketManager.swift */; };
 		BE7527FF2C554F020091B836 /* SIMD3+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7527FE2C554F020091B836 /* SIMD3+Extensions.swift */; };
@@ -31,7 +31,7 @@
 		BE7527E82C5501A40091B836 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE7527F22C5502260091B836 /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 		BE7527F42C55023C0091B836 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
-		BE7527F72C55362D0091B836 /* HandsPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandsPosition.swift; sourceTree = "<group>"; };
+		BE7527F72C55362D0091B836 /* HandPoses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandPoses.swift; sourceTree = "<group>"; };
 		BE7527F92C5536520091B836 /* HandJoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandJoint.swift; sourceTree = "<group>"; };
 		BE7527FB2C5538A00091B836 /* WebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketManager.swift; sourceTree = "<group>"; };
 		BE7527FE2C554F020091B836 /* SIMD3+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SIMD3+Extensions.swift"; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 			children = (
 				BE7527FD2C554EF90091B836 /* Extensions */,
 				BE7527F62C55023F0091B836 /* Protocols */,
-				BE7527F72C55362D0091B836 /* HandsPosition.swift */,
+				BE7527F72C55362D0091B836 /* HandPoses.swift */,
 				BE7527F92C5536520091B836 /* HandJoint.swift */,
 			);
 			path = Models;
@@ -230,7 +230,7 @@
 				BE7527FA2C5536520091B836 /* HandJoint.swift in Sources */,
 				BE7527F32C5502260091B836 /* MotionManager.swift in Sources */,
 				BE7528012C554FAE0091B836 /* UserDefaults+Extensions.swift in Sources */,
-				BE7527F82C55362D0091B836 /* HandsPosition.swift in Sources */,
+				BE7527F82C55362D0091B836 /* HandPoses.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
