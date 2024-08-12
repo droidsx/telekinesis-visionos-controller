@@ -11,7 +11,7 @@ import RealityKit
 struct ContentView: View {
     @EnvironmentObject private var webSocketManager: WebSocketManager
     
-    @State private var urlInput = "wss://droid-osmosis.onrender.com"
+    @AppStorage("webSocketUrl") private var urlInput = "wss://droid-osmosis.onrender.com"
 
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissWindow) var dismissWindow

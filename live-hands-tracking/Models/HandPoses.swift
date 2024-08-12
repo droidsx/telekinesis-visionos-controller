@@ -66,6 +66,7 @@ struct HandPoses {
     
     struct JsonPayload {
         let clientId: String
+        let clientPlatform: String = "visionOS"
         let timestamp: Date
         let leftHand: HandPayload
         let rightHand: HandPayload
