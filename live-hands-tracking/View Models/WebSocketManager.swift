@@ -33,7 +33,7 @@ class WebSocketManager: NSObject, ObservableObject, Service {
     }
     
     func sendMessage(data: [String: Any]) {
-        self.log("ℹ️ Attempting to send message: \(data)")
+//        self.log("ℹ️ Attempting to send message: \(data)")
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: data, options: [])
             let message = URLSessionWebSocketTask.Message.data(jsonData)
@@ -41,7 +41,7 @@ class WebSocketManager: NSObject, ObservableObject, Service {
                 if let error = error {
                     self.log("⛔️ WebSocket sending error: \(error)")
                 } else {
-                    self.log("✅ Message sent with no errors.")
+//                    self.log("✅ Message sent with no errors.")
                     DispatchQueue.main.async {
                         self.successfulMessageCount += 1
                     }
